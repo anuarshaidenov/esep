@@ -1,4 +1,5 @@
 import { Header } from "@/components/header";
+import { InfoDialogProvider } from "@/components/info-dialog-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import React from "react";
 
@@ -14,8 +15,10 @@ const AppLayout = (props: Props) => {
       enableSystem
       disableTransitionOnChange
     >
-      <Header />
-      {props.children}
+      <InfoDialogProvider>
+        <Header />
+        {props.children}
+      </InfoDialogProvider>
     </ThemeProvider>
   );
 };
