@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import { Toaster } from "@/components/ui/sonner";
 
 const jetBrainsMono = localFont({
   src: [
@@ -39,6 +40,7 @@ export default function RootLayout({
         className={`${jetBrainsMono.variable} font-jetbrains-mono antialiased`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );
