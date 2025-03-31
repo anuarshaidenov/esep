@@ -27,7 +27,7 @@ export const Editor = () => {
         className="h-full col-span-4 outline-none resize-none"
         placeholder="Start calculating..."
       />
-      <div className="h-full px-4 col-span-1 overflow-y-scroll">
+      <div className="h-full px-4 col-span-1 flex flex-col">
         {output.map((item, index) => (
           <button
             key={index}
