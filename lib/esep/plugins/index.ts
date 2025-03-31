@@ -1,6 +1,6 @@
-import { evaluate } from "mathjs";
+import { calculate } from "./calculate";
 
-const plugins: ((input: string) => string | null)[] = [];
+const plugins: ((input: string) => string | null)[] = [calculate];
 
 export function processInput(input: string): string[] {
   const lines = input.split("\n");
@@ -17,14 +17,6 @@ export function processInput(input: string): string[] {
     for (const plugin of plugins) {
       result = plugin(line);
       if (result) break;
-    }
-
-    if (!result) {
-      try {
-        result = evaluate(line).toString();
-      } catch {
-        result = line;
-      }
     }
 
     results.push(result!);
