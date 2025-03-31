@@ -16,8 +16,10 @@ const AppLayout = (props: Props) => {
       disableTransitionOnChange
     >
       <InfoDialogProvider>
-        <Header />
-        {props.children}
+        <div className="h-screen flex flex-col">
+          <Header />
+          <main className="flex-1">{props.children}</main>
+        </div>
       </InfoDialogProvider>
     </ThemeProvider>
   );

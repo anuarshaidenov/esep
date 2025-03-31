@@ -1,6 +1,18 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
+
+export const formatNumber = (num: number): string => {
+  return new Intl.NumberFormat("ru-RU").format(num);
+};
+
+export const formatNaN = (num: number) => {
+  if (isNaN(num)) {
+    return 0;
+  }
+
+  return num;
+};
