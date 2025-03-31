@@ -2,16 +2,15 @@
 
 import { processInput } from "@/lib/esep/plugins";
 import React from "react";
-import { toast } from "sonner";
+import { useFooterBoxContext } from "./footer-box-provider";
 
 export const Editor = () => {
   const [input, setInput] = React.useState("");
+  const { setText } = useFooterBoxContext();
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
-    toast("Copied to clipboard", {
-      icon: "✅",
-    });
+    setText("Copied to clipboard");
   };
 
   return (
@@ -28,6 +27,8 @@ export const Editor = () => {
             key={index}
             className="hover:bg-green-600 hover:text-black text-green-600 rounded-2xl px-2 transition-colors duration-300 inline-block"
             onClick={() => copyToClipboard(item)}
+            onMouseEnter={() => setText("Click to copy")}
+            onMouseLeave={() => setText("")}
           >
             {item}
           </button>
