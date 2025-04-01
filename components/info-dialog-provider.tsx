@@ -36,9 +36,7 @@ export const InfoDialogProvider = ({
           </DialogHeader>
           <div className="prose prose-sm dark:prose-invert prose-code:bg-muted-foreground prose-code:p-0.5 prose-code:rounded-lg">
             <h4>Simple calculations</h4>
-            <p>
-              <code>1 + 1 = 2</code>
-            </p>
+            <p>1 + 1 = 2</p>
           </div>
         </DialogContent>
       </Dialog>
