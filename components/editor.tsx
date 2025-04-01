@@ -3,7 +3,7 @@
 import { processInput } from "@/lib/esep";
 import React from "react";
 import { useFooterBoxContext } from "./footer-box-provider";
-import { formatNumber } from "@/lib/utils";
+import { formatNumber, unformatNumber } from "@/lib/utils";
 
 export const Editor = () => {
   const [input, setInput] = React.useState("");
@@ -19,11 +19,13 @@ export const Editor = () => {
     setText(
       "Total: " +
         formatNumber(
-          processInput(input).reduce(
-            (total, item) =>
-              isNaN(parseInt(item)) ? total : total + parseInt(item),
-            0
-          )
+          processInput(input).reduce((total, item) => {
+            const unformattedItem = unformatNumber(item);
+
+            if (isNaN(unformattedItem)) return total;
+
+            return total + unformattedItem;
+          }, 0)
         )
     );
   };
@@ -32,11 +34,13 @@ export const Editor = () => {
     setText(
       "Total: " +
         formatNumber(
-          processInput(input).reduce(
-            (total, item) =>
-              isNaN(parseInt(item)) ? total : total + parseInt(item),
-            0
-          )
+          processInput(input).reduce((total, item) => {
+            const unformattedItem = unformatNumber(item);
+
+            if (isNaN(unformattedItem)) return total;
+
+            return total + unformattedItem;
+          }, 0)
         )
     );
   }, [input, setText]);

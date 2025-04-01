@@ -1,4 +1,5 @@
 import { evaluate } from "@/lib/maths";
+import { formatNumber } from "../utils";
 
 export function processInput(input: string): string[] {
   const lines = input.split("\n");
@@ -12,6 +13,10 @@ export function processInput(input: string): string[] {
 
     let result: string | null | number = null;
     result = evaluate(line);
+
+    if (typeof result === "number") {
+      result = formatNumber(result);
+    }
 
     results.push(result.toString());
   }
