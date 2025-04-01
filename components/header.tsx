@@ -2,7 +2,7 @@ import React from "react";
 import { ModeToggle } from "./mode-toggle";
 import Logo from "./ui/logo";
 import Link from "next/link";
-// import { InfoDialogButton } from "./info-dialog-button";
+import { InfoDialogButton } from "./info-dialog-button";
 
 export const Header = () => {
   return (
@@ -13,7 +13,7 @@ export const Header = () => {
         </Link>
         <div className="flex items-center gap-2">
           <ModeToggle />
-          {/* <InfoDialogButton /> */}
+          <InfoDialogButton />
         </div>
       </div>
     </header>
