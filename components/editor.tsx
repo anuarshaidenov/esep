@@ -15,6 +15,15 @@ export const Editor = () => {
     setText("Copied to clipboard");
   };
 
+  const setTotalGlobally = () => {
+    setText(
+      "Total: " +
+        formatNumber(
+          calculateTotalResults(unformatNumbers(processInput(input)))
+        )
+    );
+  };
+
   React.useEffect(() => {
     setText(
       "Total: " +
@@ -42,7 +51,7 @@ export const Editor = () => {
               className="hover:bg-green-600 hover:text-black text-green-600 rounded-2xl px-2 transition-colors duration-300 inline-block"
               onClick={() => copyToClipboard(item)}
               onMouseEnter={() => setText("Click to copy")}
-              onMouseLeave={() => setText("")}
+              onMouseLeave={() => setTotalGlobally()}
             >
               {item}
             </button>
