@@ -19,6 +19,7 @@ const operatorAliases: Record<string, string> = {
   divide: "/",
   "divided by": "/",
   of: "*",
+  "to the power": "^",
 };
 
 function replaceOperatorWords(input: string): string {
@@ -26,6 +27,7 @@ function replaceOperatorWords(input: string): string {
     const regex = new RegExp(`\\b${word}\\b`, "gi");
     input = input.replace(regex, symbol);
   }
+  console.log(input);
   return input;
 }
 
