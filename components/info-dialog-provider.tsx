@@ -78,6 +78,33 @@ export const InfoDialogProvider = ({
               </li>
               <li>Use parentheses to control evaluation order.</li>
             </ul>
+            <h4>📈 Shorthand Notation</h4>
+            <p>
+              <code>6k</code> → <strong>6000</strong>
+            </p>
+            <p>
+              <code>2k + 500</code> → <strong>2500</strong>
+            </p>
+
+            <h4>🗣 Word-Based Operators</h4>
+            <p>
+              <code>10 plus 5</code> → <strong>15</strong>
+            </p>
+            <p>
+              <code>6k multiplied by 2</code> → <strong>12000</strong>
+            </p>
+            <p>
+              <code>20 minus 3</code> → <strong>17</strong>
+            </p>
+
+            <h4>🔁 Percentage of a Value</h4>
+            <p>
+              <code>10% of 500</code> → <strong>50</strong>
+            </p>
+            <p>
+              <code>5% of salary</code> → works if <code>salary</code> is
+              defined
+            </p>
           </div>
         </DialogContent>
       </Dialog>
