@@ -9,6 +9,7 @@ import { formatNumber, unformatNumbers } from "@/lib/utils";
 export const Editor = () => {
   const [input, setInput] = React.useState("");
   const { setText } = useFooterBoxContext();
+  const edtorRef = React.useRef<HTMLTextAreaElement>(null);
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -33,9 +34,14 @@ export const Editor = () => {
     );
   }, [input, setText]);
 
+  React.useEffect(() => {
+    edtorRef.current?.focus();
+  }, []);
+
   return (
     <div className="grid grid-cols-6 h-full w-full overflow-scroll">
       <textarea
+        ref={edtorRef}
         value={input}
         onChange={(e) => setInput(e.target.value)}
         className="h-full col-span-4 outline-none resize-none"
