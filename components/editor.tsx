@@ -1,10 +1,9 @@
 "use client";
 
-import { processInput } from "@/lib/esep/plugins";
+import { processInput } from "@/lib/esep";
 import React from "react";
 import { useFooterBoxContext } from "./footer-box-provider";
-import { calculateTotalResults } from "@/lib/esep/calculateTotalResults";
-import { formatNumber, unformatNumbers } from "@/lib/utils";
+import { formatNumber } from "@/lib/utils";
 
 export const Editor = () => {
   const [input, setInput] = React.useState("");
@@ -20,7 +19,11 @@ export const Editor = () => {
     setText(
       "Total: " +
         formatNumber(
-          calculateTotalResults(unformatNumbers(processInput(input)))
+          processInput(input).reduce(
+            (total, item) =>
+              isNaN(parseInt(item)) ? total : total + parseInt(item),
+            0
+          )
         )
     );
   };
@@ -29,7 +32,11 @@ export const Editor = () => {
     setText(
       "Total: " +
         formatNumber(
-          calculateTotalResults(unformatNumbers(processInput(input)))
+          processInput(input).reduce(
+            (total, item) =>
+              isNaN(parseInt(item)) ? total : total + parseInt(item),
+            0
+          )
         )
     );
   }, [input, setText]);
