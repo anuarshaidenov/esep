@@ -3,8 +3,8 @@
 import { processInput } from "@/lib/esep/plugins";
 import React from "react";
 import { useFooterBoxContext } from "./footer-box-provider";
-// import { calculateTotalResults } from "@/lib/esep/calculateTotalResults";
-// import { formatNaN, formatNumber } from "@/lib/utils";
+import { calculateTotalResults } from "@/lib/esep/calculateTotalResults";
+import { formatNumber, unformatNumbers } from "@/lib/utils";
 
 export const Editor = () => {
   const [input, setInput] = React.useState("");
@@ -15,12 +15,14 @@ export const Editor = () => {
     setText("Copied to clipboard");
   };
 
-  // React.useEffect(() => {
-  //   setText(
-  //     "Total: " +
-  //       formatNumber(formatNaN(calculateTotalResults(processInput(input))))
-  //   );
-  // }, [input, setText]);
+  React.useEffect(() => {
+    setText(
+      "Total: " +
+        formatNumber(
+          calculateTotalResults(unformatNumbers(processInput(input)))
+        )
+    );
+  }, [input, setText]);
 
   return (
     <div className="grid grid-cols-6 h-full w-full overflow-scroll">

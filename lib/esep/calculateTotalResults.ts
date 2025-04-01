@@ -1,8 +1,8 @@
-export const calculateTotalResults = (input: string[]) => {
+export const calculateTotalResults = (input: number[]) => {
   let total = 0;
   for (const item of input) {
-    const num = parseFloat(item);
-    total += isNaN(num) ? 0 : num;
+    if (isNaN(item)) continue;
+    total += item;
   }
   return total;
 };
