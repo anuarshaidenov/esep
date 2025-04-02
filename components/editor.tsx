@@ -58,14 +58,14 @@ export const Editor = () => {
         className="h-full col-span-4 outline-none resize-none"
         placeholder="Start calculating..."
       />
-      <div className="h-full px-4 col-span-1 flex flex-col items-end">
+      <div className="h-full px-4 col-span-2 flex flex-col items-end overflow-scroll">
         {processInput(input).map((item, index) => {
           if (item === "\n") return <br key={index} />;
 
           return (
             <button
               key={index}
-              className="hover:bg-green-600 hover:text-black text-green-600 rounded-2xl px-2 transition-colors duration-300 inline-block"
+              className="hover:bg-green-600 whitespace-nowrap hover:text-black text-green-600 rounded-2xl px-2 transition-colors duration-300 inline-block"
               onClick={() => copyToClipboard(item)}
               onMouseEnter={() => setText("Click to copy")}
               onMouseLeave={() => setTotalGlobally()}

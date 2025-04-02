@@ -40,7 +40,11 @@ export const evaluate = (input: string) => {
       return result.value;
     }
 
-    return result;
+    if (typeof result === "number" || typeof result === "string") {
+      return result;
+    }
+
+    return "\n";
   } catch {
     return "\n";
   }
